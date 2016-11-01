@@ -16,3 +16,15 @@ Route::get('/', function () {
 });
 
 
+use App\User;
+use App\Address;
+
+
+Route::get('/insert', function(){
+    $user = User::findOrFail(1);
+
+    $address = new Address(['name'=>'1234 Houston av NY 11218']);
+
+    $user->address()->save($address);
+});
+
